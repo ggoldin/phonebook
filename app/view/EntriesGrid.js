@@ -39,8 +39,7 @@ Ext.define('Phonebook.view.EntriesGrid', {
             labelAlign: 'right',
             widthWidth: 100,
             fieldLabel: 'Last name',
-            name: 'lastname',
-            role: 'filterfirstname'
+            name: 'lastname'
         }, {
             xtype: 'textfield',
             labelAlign: 'right',
@@ -51,6 +50,12 @@ Ext.define('Phonebook.view.EntriesGrid', {
             text: 'Search',
             action: 'filterSearch',
             icon: 'resources/images/silkicons/magnifier.png'
+        }, {
+            text: 'Clear filter',
+            icon: 'resources/images/silkicons/delete.png',
+            handler: function() {
+                Ext.getStore('Entries').clearFilter();
+            }
         }]
     }]
 

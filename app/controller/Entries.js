@@ -32,8 +32,8 @@ Ext.define('Phonebook.controller.Entries', {
             'entriesGrid actioncolumn[action="delete"]': {
                 click: this.handleDelete
             },
-            'entriesGrid textfield[role="filterfirstname"]': {
-                change: this.handleFilter
+            'entriesGrid button[action="filterSearch"]': {
+                click: this.handleFilter
             }
         });
     },
@@ -59,7 +59,7 @@ Ext.define('Phonebook.controller.Entries', {
             values = form.getValues();
         
         if(!form.getForm().isValid()) {
-            Ext.Msg.alert('Completare', 'Completare prima tutti i campi, poi salvare');
+            Ext.Msg.alert('Complete', 'First complete all fields, then save');
             return;
         }
         
@@ -78,7 +78,7 @@ Ext.define('Phonebook.controller.Entries', {
             record = form.getRecord();
 
         if(!form.getForm().isValid()) {
-            Ext.Msg.alert('Completare', 'Completare prima tutti i campi, poi salvare');
+            Ext.Msg.alert('Complete', 'First complete all fields, then save');
             return;
         }
             
@@ -105,7 +105,7 @@ Ext.define('Phonebook.controller.Entries', {
     handleDelete: function(grid, td, rowNumber, arg, evt, record, row) {
         var storeEntries = this.getEntriesGrid().getStore();
         
-        Ext.Msg.confirm('Cancellazione', 'Sei sicuro di voler cancellare?', function(evt) {
+        Ext.Msg.confirm('Deleting', 'Are you sure you want to delete?', function(evt) {
             if(evt == 'yes') {
                 record.destroy();
                 storeEntries.load();
@@ -113,15 +113,18 @@ Ext.define('Phonebook.controller.Entries', {
         });
     },
     
-    handleFilter: function(field, value) { // non funziona
-console.log(arguments);
-        if(value.length <= 2) return;
-        
-        var grid = field.up('grid'),
-            store = grid.getStore();
-            
-        store.load({
-            params: {query: value}
-        });
+    handleFilter: function(btn) {
+        var store = this.getStore('Entries'),
+            grid = btn.up('grid'),
+            firstNameField = grid.down('textfield[name="firstname"]'),
+            lastNameField = grid.down('textfield[name="lastname"]'),
+            phoneField = grid.down('textfield[name="phone"]');
+
+        store.clearFilter();
+        store.filter([
+            {property: "firstname", value: firstNameField.getValue()},
+            {property: "lastname", value: lastNameField.getValue()},
+            {property: "phone", value: phoneField.getValue()}
+        ]);
     }
 });
