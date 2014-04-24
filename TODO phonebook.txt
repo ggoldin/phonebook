@@ -1,9 +1,0 @@
--* Filtro
-- regex: validation
-- record save onto database
-- eventualmente punto esclamativo se non compilato
-- messaggi in inglese
-- aprire una sola volta la finestra
-
-- load on github with Readme file
-- deploy on heruku
