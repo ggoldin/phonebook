@@ -31,8 +31,16 @@ Ext.define('Phonebook.view.EntriesForm', {
             name: 'phone',
             fieldLabel: 'Phone number',
             tooltip: 'Enter the phone number',
-            msgTarget: 'side'
+            msgTarget: 'side',
+            validator: function(v) {
+                var pattern = new RegExp('[+][0-9]{2}\\s[0-9]+\\s[0-9]{6,}');
+                return pattern.test(v)?true:"Invalid Number";
+            }
         }]
+    }, {
+        html: '<p style="color: gray; margin: 0" ><i>The phone number should be formatted by a +, a group of digits, a space, a group of digits and then a group of digits with at least 6 digits</i></p><p style="color: gray;"><i>e.g. +39 01 234567</i></p>',
+        border: 0,
+        margin: 15
     }],
     buttons: [
         { text: 'Save', action: 'save', hidden: true },

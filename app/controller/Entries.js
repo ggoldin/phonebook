@@ -39,10 +39,9 @@ Ext.define('Phonebook.controller.Entries', {
     },
      
     newEntry: function(btn) {
-        // bloccare il drag all'interno della finestra + se finestra già aperta non c'è possibilità di aprirne un'altra
         var window = Ext.create('Ext.window.Window', {
             title: 'Create entry',
-            height: 200,
+            height: 300,
             width: 400,
             layout: 'fit',
             items: {xtype: 'entriesForm'}
