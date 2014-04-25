@@ -82,7 +82,7 @@ Ext.define('Phonebook.controller.Entries', {
         }
             
         form.updateRecord(record);
-        record.save();
+        record.save(); // sistemare: aggiungere callback
         window.hide();
     },
     
@@ -106,7 +106,8 @@ Ext.define('Phonebook.controller.Entries', {
         
         Ext.Msg.confirm('Deleting', 'Are you sure you want to delete?', function(evt) {
             if(evt == 'yes') {
-                record.destroy();
+                storeEntries.remove(record);
+                storeEntries.sync();
                 storeEntries.load();
             }
         });

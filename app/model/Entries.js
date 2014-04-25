@@ -1,4 +1,4 @@
-Ext.define('Phonebook.model.Entries', {
+/* Ext.define('Phonebook.model.Entries', {
     extend: 'Ext.data.Model',
     fields: [
         {name: 'id',  type: 'int'},
@@ -24,9 +24,9 @@ Ext.define('Phonebook.model.Entries', {
         }
     }
 });
+ */
 
-
-/* Ext.define('Phonebook.model.Entries', {
+Ext.define('Phonebook.model.Entries', {
     extend: 'Ext.data.Model',
     fields: [
         {name: 'id',  type: 'int'},
@@ -37,15 +37,10 @@ Ext.define('Phonebook.model.Entries', {
     proxy: {
         type: 'direct',
         api: {
-            create: 'php/entries/create.php',
-            read: 'php/entries/read.php',
-            update: 'php/entries/update.php',
-            destroy: 'php/entries/delete.php'
-        }//,
-        //reader: {
-        //    type: 'json',
-        //    root: 'entries',
-        //    messageProperty: 'message'
-        //}
+            create: Entries.create,
+            read: Entries.read,
+            update: Entries.update,
+            destroy: Entries.destroy
+        }
     }
-}); */
+});
