@@ -82,14 +82,14 @@ Ext.define('Phonebook.controller.Entries', {
         }
             
         form.updateRecord(record);
-        record.save(); // sistemare: aggiungere callback
+        record.save(); // aggiungere eventualmente callback
         window.hide();
     },
     
     handleEdit: function(grid, td, rowNumber, arg, evt, record, row) {
         var window = Ext.create('Ext.window.Window', {
             title: 'Edit entry',
-            height: 200,
+            height: 300,
             width: 400,
             layout: 'fit',
             items: {xtype: 'entriesForm'}
