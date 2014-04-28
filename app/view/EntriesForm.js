@@ -21,14 +21,12 @@ Ext.define('Phonebook.view.EntriesForm', {
             name: 'firstname',
             fieldLabel: 'First name',
             tooltip: 'Enter the first name',
-            msgTarget: 'side',
-            fieldStyle: 'text-transform: capitalize;'
+            msgTarget: 'side'
         }, {
             name: 'lastname',
             fieldLabel: 'Last name',
             tooltip: 'Enter the last name',
-            msgTarget: 'side',
-            fieldStyle: 'text-transform: capitalize;'
+            msgTarget: 'side'
         }, {
             name: 'phone',
             fieldLabel: 'Phone number',
