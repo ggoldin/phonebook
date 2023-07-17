@@ -8,7 +8,7 @@ Per poterlo visualizzare si può andare a questo link [Preview rubrica](http://g
 
 ## Getting Started
 
-1. Utilizzando il [Git Bush](http://git-scm.com/downloads), dopo essersi sistemati in uno spazio dove poter installare l'applicazione su server o in locale (wamp, mamp, lamp) scaricare i file dal mio repository ([https://github.com/ggoldin/phonebook](https://github.com/ggoldin/phonebook)):
+1. Utilizzando il [Git Bash](http://git-scm.com/downloads), dopo essersi sistemati in uno spazio dove poter installare l'applicazione su server o in locale (wamp, mamp, lamp) scaricare i file dal mio repository ([https://github.com/ggoldin/phonebook](https://github.com/ggoldin/phonebook)):
 
         cd your/development/folder/
         git clone https://github.com/ggoldin/phonebook
